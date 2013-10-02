@@ -16,8 +16,7 @@
         
     ],
     "autoload": {
-        "psr-0": { "Lw\\TYPO3CMSInstallers\\": "src/"},
-        "psr-0": { "Dkd\\Downloader\\": "src/"}
+        "psr-0": { "": "src/"}
     },
     "extra": {
         "class": "Lw\\TYPO3CMSInstallers\\TYPO3CMSInstallerPlugin"

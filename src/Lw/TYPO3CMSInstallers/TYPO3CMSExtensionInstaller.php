@@ -6,7 +6,7 @@ use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 use Composer\IO\IOInterface;
 use Composer\Util\Filesystem;
-use Dkd\T3xDownloader;
+use Dkd\Downloader\T3xDownloader;
 
 
 /**
@@ -14,14 +14,8 @@ use Dkd\T3xDownloader;
  *
  * @author Felix Oertel <fo@lightwerk.com>
  */
-class TYPO3CmsInstaller extends LibraryInstaller {
+class TYPO3CMSExtensionInstaller extends LibraryInstaller {
 
-	/**
-	 * Initializes base installer.
-	 *
-	 * @param \Composer\Package\PackageInterface $package
-	 * @param \Composer\Composer $composer
-	 */
 	public function __construct(IOInterface $io, Composer $composer, $type = 'library', Filesystem $filesystem = null) {
 		parent::__construct($io, $composer, $type, $filesystem);
 
@@ -32,9 +26,8 @@ class TYPO3CmsInstaller extends LibraryInstaller {
 	 * {@inheritDoc}
 	 */
 	public function getPackageBasePath(PackageInterface $package) {
-		var_dump($package->getPrettyName());
-		die();
-		return 'typo3conf/ext/';
+		$extensionName = explode('/', $package->getName());
+		return 'typo3conf/ext/' . array_pop($extensionName);
 	}
 
 	/**
@@ -43,6 +36,5 @@ class TYPO3CmsInstaller extends LibraryInstaller {
 	public function supports($packageType) {
 		return ('typo3cms-extension' === $packageType);
 	}
-
 }
 ?>
