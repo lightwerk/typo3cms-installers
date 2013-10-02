@@ -1,5 +1,5 @@
 <?php
-namespace Lw\TYPO3CMSInstaller;
+namespace Lw\TYPO3CMSInstallers;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
