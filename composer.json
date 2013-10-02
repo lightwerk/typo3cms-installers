@@ -1,0 +1,28 @@
+{
+    "name": "lw/typo3cms-installers",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "description": "A TYPO3 CMS Composer installer",
+    "keywords": [
+        "installer", "typo3", "cms"
+    ],
+    "homepage": "https://github.com/lightwerk/typo3cms-installers",
+    "authors": [
+        {
+            "name": "Felix Oertel",
+            "email": "fo@lightwerk.com",
+            "homepage": "https://github.com/lightwerk"
+        }
+        
+    ],
+    "autoload": {
+        "psr-0": { "Lw\\TYPO3CMSInstallers\\": "src/"},
+        "psr-0": { "Dkd\\Downloader\\": "src/"}
+    },
+    "extra": {
+        "class": "Lw\\TYPO3CMSInstallers\\TYPO3CMSInstallerPlugin"
+    },
+    "require": {
+        "composer-plugin-api": "1.0.0"
+    }
+}
