@@ -72,6 +72,9 @@ class T3xDownloader extends ArchiveDownloader implements ChangeReportInterface
             $extensionFiles = unserialize($EM_CONF[$_EXTKEY]['_md5_values_when_last_written']);
 
             foreach($extensionFiles as $extensionFileName => $extensionFileHash) {
+                if (substr($extensionFileName, -1) === '/') {
+                    continue;
+                }
                 if(is_file($path . $extensionFileName))  {
                     $localFileContentHash = md5(file_get_contents($path . $extensionFileName));
 
