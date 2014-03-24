@@ -10,7 +10,7 @@ install their extension to typo3conf/ext.
 
 ## Example `composer.json` File
 
-Add Lightwerks Composer Repository to your `composer.json` and set `"type": "typo3cms-extension"`, which describes what your extension is. `"require": { "lw/typo3-installers": "*" }` tells composer to load the custom installers.
+Add Lightwerks Composer Repository to your `composer.json` and set `"type": "typo3cms-extension"`, which describes what your extension is. `"require": { "lw/typo3cms-installers": "*" }` tells composer to load the custom installers.
 
 ``` json
 {
@@ -23,7 +23,7 @@ Add Lightwerks Composer Repository to your `composer.json` and set `"type": "typ
     "name": "foo/bar_stuff",
     "type": "typo3cms-extension",
     "require": {
-        "lw/typo3-installers": "*"
+        "lw/typo3cms-installers": "*"
     }
 }
 ```
