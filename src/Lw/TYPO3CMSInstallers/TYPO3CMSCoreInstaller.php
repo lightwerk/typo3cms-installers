@@ -14,29 +14,22 @@ use Dkd\Downloader\T3xDownloader;
  *
  * @author Felix Oertel <fo@lightwerk.com>
  */
-class TYPO3CMSExtensionInstaller extends LibraryInstaller {
+class TYPO3CMSCoreInstaller extends LibraryInstaller {
 
-	const DEFAULT_INSTALL_EXTENSION_PATH = 'typo3conf/ext/';
-
-	public function __construct(IOInterface $io, Composer $composer, $type = 'library', Filesystem $filesystem = null) {
-		parent::__construct($io, $composer, $type, $filesystem);
-
-		$composer->getDownloadManager()->setDownloader('t3x', new T3xDownloader($io, $composer->getConfig()));
-	}
+	const DEFAULT_INSTALL_CORE_PATH = 'typo3_src';
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function getPackageBasePath(PackageInterface $package) {
-		$extensionName = explode('/', $package->getName());
-		return $this->getInstallationPath() . array_pop($extensionName);
+		return $this->getInstallationPath();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	public function supports($packageType) {
-		return ('typo3cms-extension' === $packageType);
+		return ('typo3cms-core' === $packageType);
 	}
 
 	/**
@@ -48,8 +41,8 @@ class TYPO3CMSExtensionInstaller extends LibraryInstaller {
 	protected function getInstallationPath() {
 		$extra = $this->composer->getPackage()->getExtra();
 
-		return isset($extra['typo3-cms-extension-installer-path']) ?
-			$extra['typo3-cms-extension-installer-path'] : self::DEFAULT_INSTALL_EXTENSION_PATH;
+		return isset($extra['typo3-cms-core-installer-path']) ?
+			$extra['typo3-cms-core-installer-path'] : self::DEFAULT_INSTALL_CORE_PATH;
 	}
 }
 ?>
